@@ -5,8 +5,16 @@ from .models import Note
 
 class NoteSerializer(serializers.ModelSerializer):
 
-	#user = serializers.PrimaryKeyRelatedField(read_only=True)
+	user = serializers.PrimaryKeyRelatedField(source='user.username',queryset=get_user_model().objects.all())
 
 	class Meta:
 		model = Note
-		fields = ['title','body','date_created',]
+		fields = ['title','body','date_created','user']
+
+
+
+class UserSerializer(serializers.ModelSerializer):
+
+	class Meta:
+		model = get_user_model()
+		fields = '__all__'
