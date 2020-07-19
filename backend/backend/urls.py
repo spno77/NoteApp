@@ -14,4 +14,10 @@ urlpatterns = [
 	#JWT endpoints
     path('api-token-auth/', obtain_jwt_token),
 	path('api-token-refresh/', refresh_jwt_token),
+
+	#rest auth endpoint
+	path('api/v1/rest-auth/', include('rest_auth.urls')),
+
+	#all auth endpoint
+	path('api/v1/rest-auth/registration/',include('rest_auth.registration.urls')),
 ]
