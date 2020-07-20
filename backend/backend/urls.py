@@ -17,6 +17,8 @@ urlpatterns = [
 
 	#rest auth endpoint
 	path('api/v1/rest-auth/', include('rest_auth.urls')),
+	path('api-auth/', include('rest_framework.urls')),
+
 
 	#all auth endpoint
 	path('api/v1/rest-auth/registration/',include('rest_auth.registration.urls')),

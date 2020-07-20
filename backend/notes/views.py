@@ -7,8 +7,11 @@ from .serializers import NoteSerializer
 from rest_framework import generics
 
 class NoteList(generics.ListCreateAPIView):
-	queryset = Note.objects.all()
 	serializer_class = NoteSerializer
+
+	def get_queryset(self):
+		user = self.request.user
+		return Note.objects.filter(user=user)
 
 	def perform_create(self, serializer):
 		serializer.save(user=self.request.user)
