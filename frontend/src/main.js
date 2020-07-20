@@ -10,6 +10,10 @@ import axios from 'axios'
 
 import VueRouter from 'vue-router'
 
+import RegisterUser from './components/RegisterUser.vue'
+import Navbar from './components/Navbar.vue'
+
+
 Vue.use(axios)
 
 Vue.use(BootstrapVue)
@@ -20,6 +24,28 @@ Vue.use(VueRouter)
 
 Vue.config.productionTip = false
 
+Vue.use(Navbar)
+
+const routes = [
+	{
+		path: '/register',
+		name: 'register',
+		component: RegisterUser,
+		props: true
+	},
+
+]
+
+const router = new VueRouter({
+    routes,
+	mode: 'history'
+})
+
+
 new Vue({
   render: h => h(App),
+  router,
 }).$mount('#app')
+
+
+
