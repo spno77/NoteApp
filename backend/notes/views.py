@@ -3,6 +3,7 @@ from django.contrib.auth import get_user_model
 
 from .models import Note
 from .serializers import NoteSerializer
+from .permissions import IsCreator
 
 from rest_framework import generics
 
@@ -18,6 +19,7 @@ class NoteList(generics.ListCreateAPIView):
 
 
 class NoteDetail(generics.RetrieveUpdateDestroyAPIView):
+	permission_classes = [IsCreator,]
 	queryset = Note.objects.all()
 	serializer_class = NoteSerializer
 
