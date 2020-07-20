@@ -47,12 +47,15 @@ INSTALLED_APPS = [
 	'allauth.account',
 	'allauth.socialaccount',
 	'rest_auth.registration',
+	'corsheaders',
 
 	#local
 	'notes',
 ]
 
 MIDDLEWARE = [
+	'corsheaders.middleware.CorsMiddleware',
+	'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -164,3 +167,5 @@ JWT_AUTH = {
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 SITE_ID = 1
+
+CORS_ORIGIN_ALLOW_ALL = True 
