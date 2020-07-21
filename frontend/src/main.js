@@ -11,6 +11,7 @@ import axios from 'axios'
 import VueRouter from 'vue-router'
 
 import RegisterUser from './components/RegisterUser.vue'
+import LoginUser from './components/LoginUser.vue'
 import Navbar from './components/Navbar.vue'
 
 
@@ -31,6 +32,12 @@ const routes = [
 		path: '/register',
 		name: 'register',
 		component: RegisterUser,
+		props: true
+	},
+	{
+		path: '/login',
+		name: 'login',
+		component: LoginUser,
 		props: true
 	},
 
