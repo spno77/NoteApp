@@ -16,9 +16,13 @@ import Navbar from './components/Navbar.vue'
 import NoteList from './components/NoteList.vue'
 import NoteCreate from './components/NoteCreate.vue'
 
+import Vuex from 'vuex'
+import store from './store/index.js'
 
 
 Vue.use(axios)
+
+Vue.use(Vuex)
 
 Vue.use(BootstrapVue)
 
@@ -67,6 +71,7 @@ const router = new VueRouter({
 new Vue({
   render: h => h(App),
   router,
+  store
 }).$mount('#app')
 
 

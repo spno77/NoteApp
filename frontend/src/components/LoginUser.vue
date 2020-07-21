@@ -27,8 +27,7 @@
       <b-button  v-on:click="onSubmit" variant="primary"> Login </b-button>
     </b-form>
 
-
-
+  
 
      </b-container>
       </div>
@@ -38,8 +37,10 @@
 
 <script>
  import axios from 'axios';
+ 
   export default {
     
+
     data() {
       return {
         user:{  
