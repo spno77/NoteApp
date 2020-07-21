@@ -8,18 +8,18 @@
           <b-card
 
             :title="note.title"
-            img-src = "https://picsum.photos/600/300/?image=25"
-            img-alt="Image"
-            img-top
+            
             tag="article"
             style="max-width: 20rem;"
             class="mb-2"
            >
             <b-card-text>
-              {{ note.body}}
+              {{ note.body}}<br>
+              <i>{{ note.date_created }}</i>
+              
             </b-card-text>
 
-            <b-button href="#" variant="primary"> Info </b-button>
+            
           </b-card>
         </b-col>  
     </b-row>
@@ -31,17 +31,25 @@
 
 <script>
 import axios from 'axios';
+ import { mapGetters } from 'vuex';
+
 export default {
-  name: 'HouseList',
+  name: 'NoteList',
   
   data(){
     return {
       notes: []
     }
   },
+  computed:{
+      ...mapGetters([
+        'loggedUser'
+      ])
+     },
   mounted(){
     axios
-      .get('http://127.0.0.1:8000/api/v1/notes/')
+      .get('http://127.0.0.1:8000/api/v1/notes/',  
+      )
       .then(response => (this.notes = response.data))
   }
 }

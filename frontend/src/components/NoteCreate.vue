@@ -17,7 +17,7 @@
         ></b-form-input>
       </b-form-group>
 
-      <b-form-group id="input-group-2" label="Description:" label-for="input-2">
+      <b-form-group id="input-group-2" label="Note Body:" label-for="input-2">
         <b-form-input
           id="input-2"
           v-model="note.body"
@@ -25,7 +25,9 @@
           placeholder="Enter description"
         ></b-form-input>
       </b-form-group>
+     
 
+   
 
 
       <b-button  v-on:click="onSubmit" variant="primary">Submit</b-button>
@@ -39,6 +41,7 @@
 
 <script>
  import axios from 'axios';
+ import { mapGetters } from 'vuex';
 
   export default {
     data() {
@@ -48,24 +51,38 @@
           title: '',
           body: '',
          }, 
-
+  
         show: true
       }
     },
+   
+    computed:{
+      ...mapGetters([
+        'loggedUser'
+      ])
+     },
 
-    methods: {
-      onSubmit() {
+    methods:{
+   
+      onSubmit(){
         axios
-          .post('http://127.0.0.1:8000/api/v1/notes/',
-           this.note)
-        this.$router.push('/')
+         .post('http://127.0.0.1:8000/api/v1/notes/',{
+             title: this.note.title,
+             body:  this.note.body
+           },{
 
-      },
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Basic ${this.loggedUser.token}` 
+            }
+           })
+         }
 
+      }
 
-      
-    }
-  }
+}
+
+ 
 </script>
 
 
@@ -79,3 +96,9 @@
 }
 
 </style>
+
+
+
+
+
+

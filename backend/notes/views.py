@@ -9,6 +9,8 @@ from rest_framework import generics
 
 class NoteList(generics.ListCreateAPIView):
 	serializer_class = NoteSerializer
+	#queryset = Note.objects.all()
+
 
 	def get_queryset(self):
 		user = self.request.user

@@ -24,7 +24,7 @@
         ></b-form-input>
       </b-form-group>
 
-      <b-button  v-on:click="onSubmit" variant="primary"> Login </b-button>
+      <b-button  @click="loginUser(user)" variant="primary"> Login </b-button>
     </b-form>
 
   
@@ -36,33 +36,34 @@
 
 
 <script>
- import axios from 'axios';
- 
+ //import axios from 'axios';
+  import { mapGetters } from 'vuex';
+  import { mapActions } from 'vuex';
+
   export default {
     
-
     data() {
       return {
-        user:{  
+        user:{
           username: '',
           password: '',
-        } ,
-
-        jwt: '',
+        },
+        id: '',
         show: true
       }
     },
+    computed:{
+      ...mapGetters([
+        'loggedUser'
+      ])
+     },
+
     methods: {
-      onSubmit() {
-        axios
-          .post('http://127.0.0.1:8000/api/v1/rest-auth/login/',{
-            username:   this.user.username,
-            password:   this.user.password
-          })
-          .then(response => (this.jwt = response.data.token))
-      },
+      ...mapActions(['loginUser']),
+      
     }
-  }
+  
+}
 </script>
 
 
