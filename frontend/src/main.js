@@ -13,6 +13,9 @@ import VueRouter from 'vue-router'
 import RegisterUser from './components/RegisterUser.vue'
 import LoginUser from './components/LoginUser.vue'
 import Navbar from './components/Navbar.vue'
+import NoteList from './components/NoteList.vue'
+import NoteCreate from './components/NoteCreate.vue'
+
 
 
 Vue.use(axios)
@@ -38,6 +41,18 @@ const routes = [
 		path: '/login',
 		name: 'login',
 		component: LoginUser,
+		props: true
+	},
+	{
+		path: '/notes',
+		name: 'notes',
+		component: NoteList,
+		props: true
+	},
+	{
+		path: '/create',
+		name: 'create',
+		component: NoteCreate,
 		props: true
 	},
 

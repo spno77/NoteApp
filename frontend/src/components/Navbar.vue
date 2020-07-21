@@ -2,7 +2,9 @@
   <div>
    <b-nav class="fixed-top" align="center">
 
-     <b-button v-b-popover.hover.top="'Login to write a note'" title="Login">
+    <b-nav-item :to="{name: 'notes'}"> Home </b-nav-item>
+   
+     <b-button :to="{name: 'create'}" v-b-popover.hover.top="'Login to write a note'" title="Login">
       New Note
     </b-button>
   
