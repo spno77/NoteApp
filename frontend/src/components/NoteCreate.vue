@@ -25,10 +25,6 @@
           placeholder="Enter description"
         ></b-form-input>
       </b-form-group>
-     
-
-   
-
 
       <b-button  v-on:click="onSubmit" variant="primary">Submit</b-button>
     </b-form>
@@ -71,14 +67,15 @@
              body:  this.note.body,
              user:  this.loggedUser.user.pk
            },
-          {headers: {'Authorization': 'JWT ' + this.loggedUser.token}}  
+            {headers: {'Authorization': 'JWT ' + this.loggedUser.token}}  
            )
          .catch((err) => {
-         //handle error
            console.log(err.response.data);
            });
+         this.$router.push('/notes')
          }
 
+         
       }
 
 }

@@ -2,11 +2,10 @@
   <div>
    <app /> 
    <b-container>
-    <h1 class="ti"> Notes </h1>
+    <h1 class="ti">My Notes </h1>
     <b-row align-v="center">
         <b-col md="3" v-for="note in notes" :key="note.id">
-          <b-card
-
+          <b-card 
             :title="note.title"
             
             tag="article"
@@ -16,10 +15,10 @@
             <b-card-text>
               {{ note.body}}<br>
               <i>{{ note.date_created }}</i>
+             
               
             </b-card-text>
 
-            
           </b-card>
         </b-col>  
     </b-row>
@@ -52,8 +51,11 @@ export default {
        {headers: {'Authorization': 'JWT ' + this.loggedUser.token}}  
       )
       .then(response => (this.notes = response.data))
-  }
+  },
+
 }
+
+
 </script>
 
 <style scoped>
