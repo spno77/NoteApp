@@ -68,14 +68,15 @@
         axios
          .post('http://127.0.0.1:8000/api/v1/notes/',{
              title: this.note.title,
-             body:  this.note.body
-           },{
-
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Basic ${this.loggedUser.token}` 
-            }
-           })
+             body:  this.note.body,
+             user:  this.loggedUser.user.pk
+           },
+          {headers: {'Authorization': 'JWT ' + this.loggedUser.token}}  
+           )
+         .catch((err) => {
+         //handle error
+           console.log(err.response.data);
+           });
          }
 
       }
