@@ -17,16 +17,16 @@
         ></b-form-input>
       </b-form-group>
 
-      <b-form-group id="input-group-2" label="Note Body:" label-for="input-2">
-        <b-form-input
-          id="input-2"
-          v-model="note.body"
-          required
-          placeholder="Enter description"
-        ></b-form-input>
-      </b-form-group>
+      <b-form-textarea
+      id="textarea"
+      v-model="note.body"
+      placeholder="Write note..."
+      rows="3"
+      max-rows="6"
+    ></b-form-textarea>
 
-      <b-button  v-on:click="onSubmit" variant="primary">Submit</b-button>
+
+      <b-button v-on:click="onSubmit" variant="primary">Submit</b-button>
     </b-form>
    
      </b-container>
