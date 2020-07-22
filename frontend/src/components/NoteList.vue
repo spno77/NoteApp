@@ -48,7 +48,8 @@ export default {
      },
   mounted(){
     axios
-      .get('http://127.0.0.1:8000/api/v1/notes/',  
+      .get('http://127.0.0.1:8000/api/v1/notes/',
+       {headers: {'Authorization': 'JWT ' + this.loggedUser.token}}  
       )
       .then(response => (this.notes = response.data))
   }
