@@ -6,7 +6,10 @@
     <b-row align-v="center">
         <b-col md="3" v-for="note in notes" :key="note.id">
           <b-card 
-            :title="note.title"
+          border-variant="info"
+        header-bg-variant="info"
+        header-text-variant="white" 
+            :header="note.title"
             
             tag="article"
             style="max-width: 20rem;"
