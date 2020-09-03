@@ -1,6 +1,5 @@
 <template>
   <div>
-   <app /> 
    <b-container>
     <h1 class="ti">My Notes </h1>
     <b-row align-v="center">

@@ -1,6 +1,5 @@
 <template>
     <div>
-        <app />
         <div>
              <h1 class="ti">  Login </h1>
          <b-container>	
@@ -54,12 +53,13 @@
     },
     computed:{
       ...mapGetters([
-        'loggedUser'
+        'loggedUser',
+        'isLoggedIn',
       ])
      },
 
     methods: {
-      ...mapActions(['loginUser']),
+      ...mapActions(['loginUser',]),
       
     }
   

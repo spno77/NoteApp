@@ -8,7 +8,6 @@
       New Note
     </b-button>
   
-    <b-nav-item :to="{name: 'register'}">Register</b-nav-item>
 
     <b-nav-item-dropdown
       id="my-nav-dropdown"
@@ -16,8 +15,10 @@
       toggle-class="nav-link-custom"
       right
     >
-      <b-dropdown-item :to="{name: 'login'}">  Login   </b-dropdown-item>
-      <b-dropdown-item @click="logout()">  Logout  </b-dropdown-item>
+      <b-dropdown-item v-if="isLoggedIn===false" :to="{name: 'register'}">  Register  </b-dropdown-item>
+      <b-dropdown-item v-if="isLoggedIn===false" :to="{name: 'login'}">  Login   </b-dropdown-item>
+
+      <b-dropdown-item v-if="isLoggedIn===true" @click="logoutUser">  Logout  </b-dropdown-item>
 
        </b-nav-item-dropdown>
 
@@ -29,17 +30,23 @@
 </template>
 
 <script>
-  import axios from 'axios';
+  //import axios from 'axios';
+  import { mapActions } from 'vuex';
+  import { mapGetters } from 'vuex';
  
   export default{
 
- methods: {
+  methods: {
 
-  logout(){
-      axios
-        .post('http://127.0.0.1:8000/api/v1/rest-auth/logout/')
-    },
+  ...mapActions(['logoutUser']),
   },
+
+  computed:{
+      ...mapGetters([
+        'loggedUser',
+        'isLoggedIn',
+      ])
+     },
 
 }
 </script>
