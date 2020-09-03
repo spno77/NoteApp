@@ -28,6 +28,7 @@
      
 
       <b-button  v-on:click="editNote" variant="primary"> Edit </b-button>
+      <b-button  v-on:click="deleteNote" variant="danger"> Delete </b-button>
     </b-form>
    
      </b-container>
@@ -89,10 +90,20 @@
            });
 
          this.$router.push('/notes')
-        }
-      
     },
       
+    deleteNote() {
+      axios
+        .delete('http://127.0.0.1:8000/api/v1/notes/'+ this.id +'/',
+          {headers: {'Authorization': 'JWT ' + this.loggedUser.token}}
+         )   
+        .catch((err) => {
+           console.log(err.response.data);
+           });
+        this.$router.push('/notes')
+    },
+
+  },  
 }
    
 
