@@ -16,8 +16,8 @@
            >
             <b-card-text>
               {{ note.body}}<br>
-              <i>{{ note.date_created }}</i>
-             
+              <i>{{ note.date_created }}</i> <br>
+             <router-link :to="{name: 'edit', params: { id: note.id }}" class="btn btn-primary">Edit </router-link>
               
             </b-card-text>
 

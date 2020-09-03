@@ -11,10 +11,11 @@ import axios from 'axios'
 import VueRouter from 'vue-router'
 
 import RegisterUser from './components/RegisterUser.vue'
-import LoginUser from './components/LoginUser.vue'
-import Navbar from './components/Navbar.vue'
-import NoteList from './components/NoteList.vue'
-import NoteCreate from './components/NoteCreate.vue'
+import LoginUser    from './components/LoginUser.vue'
+import Navbar       from './components/Navbar.vue'
+import NoteList     from './components/NoteList.vue'
+import NoteCreate   from './components/NoteCreate.vue'
+import NoteEdit     from './components/NoteEdit.vue'
 
 import Vuex from 'vuex'
 import store from './store/index.js'
@@ -57,6 +58,12 @@ const routes = [
 		path: '/create',
 		name: 'create',
 		component: NoteCreate,
+		props: true
+	},
+	{
+		path: '/edit/:id',
+		name: 'edit',
+		component: NoteEdit,
 		props: true
 	},
 
