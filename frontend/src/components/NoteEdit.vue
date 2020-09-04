@@ -89,7 +89,7 @@
            console.log(err.response.data);
            });
 
-         this.$router.push('/notes')
+         //this.$router.push('/notes')
     },
       
     deleteNote() {
@@ -100,7 +100,7 @@
         .catch((err) => {
            console.log(err.response.data);
            });
-        this.$router.push('/notes')
+        //this.$router.push('/notes')
     },
 
   },  

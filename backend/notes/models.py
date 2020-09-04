@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model
 
 class Note(models.Model):
 
-	title  		 =	models.CharField(max_length=20)
+	title  		 =	models.CharField(max_length=40)
 	body 		 =	models.CharField(max_length=200)
 	date_created =  models.DateField(auto_now_add=True)
 
